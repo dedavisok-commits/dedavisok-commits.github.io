@@ -4,7 +4,7 @@
 <style>body{font-family:system-ui,sans-serif;max-width:720px;margin:2rem auto;padding:0 16px;line-height:1.55;color:#1f2328}h1{font-size:1.6rem}h2{font-size:1.15rem;margin-top:1.6rem}</style>
 </head><body>
 <h1>Rosey: privacy policy</h1>
-<p>Last updated: October 11, 2026</p>
+<p>Last updated: October 12, 2026</p>
 <p>Rosey is a personal assistant app built by Daniel Davis for his own use. It is not offered to the public. This page explains what the app does with data.</p>
 
 <h2>Microphone</h2>
@@ -13,19 +13,29 @@
 
 <h2>Personal information</h2>
 <p>When the user asks about their own information (for example reminders, to-dos, calendar, messages or email), the request is sent to the owner's private server, which is reachable only over the owner's private network. Answers that include personal information require the phone to be unlocked.</p>
+<p>On the server, the assistant's thinking is done by Anthropic's Claude AI service: the text it works on (questions, typed messages, forwarded notifications, and contact details it looks up) is sent to Anthropic for that purpose, under Anthropic's commercial terms.</p>
 
 <h2>Notifications</h2>
 <p>The app shows notifications about items that need the user. Notification pings delivered through Google's push service carry no message content; the app fetches the details from the owner's private server.</p>
+
+<h2>Notification access (optional)</h2>
+<p>If the user turns it on (the app explains it first, then Android asks), the app reads the notifications that arrive on the phone: text messages, missed calls, and alerts from other apps such as a bank or a delivery service. It sends the app's name, the sender and the notification's text to the owner's private server, where the assistant (using Anthropic's Claude, see above) decides what needs the user's attention. Before anything leaves the phone, the app removes the one-time codes and sign-in links it can recognise; the server applies the same check again. Notifications from password managers and authenticator apps are never sent. The user can turn this off, or switch off single apps, in the app's settings. The app never taps a notification's buttons, never replies and never sends a message on its own.</p>
+
+<h2>Contacts (optional)</h2>
+<p>If the user allows it, the app sends the names, phone numbers, email addresses and company names of the phone's contacts to the owner's private server about twice a day, so the assistant can tell who texted, called or emailed. Photos, notes and addresses are not sent.</p>
+
+<h2>Typed messages</h2>
+<p>Messages the user types to the assistant in the app are sent to the owner's private server, answered there, and kept with the conversation history.</p>
 
 <h2>What is not done</h2>
 <ul>
 <li>No data is sold or shared with advertisers or data brokers.</li>
 <li>No advertising and no analytics or tracking SDKs.</li>
-<li>Data is sent only to the owner's private server and to ElevenLabs during conversations, always encrypted in transit (TLS).</li>
+<li>Data is sent only to the owner's private server, to Anthropic for the assistant's thinking, and to ElevenLabs during spoken conversations, always encrypted in transit (TLS).</li>
 </ul>
 
 <h2>Keeping and deleting data</h2>
-<p>Conversation transcripts are kept on the owner's private server and can be deleted by the owner at any time. Uninstalling the app removes everything stored on the phone.</p>
+<p>Conversation transcripts are kept on the owner's private server and can be deleted by the owner at any time. Forwarded notifications are kept in their own list on the server for 30 days; what the assistant read also stays in its conversation history (and that history's backups) until the owner deletes it. Uninstalling the app removes everything stored on the phone.</p>
 
 <h2>Contact</h2>
 <p>Questions: dedavisok@gmail.com</p>
