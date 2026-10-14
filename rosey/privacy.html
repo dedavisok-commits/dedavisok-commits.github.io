@@ -4,7 +4,7 @@
 <style>body{font-family:system-ui,sans-serif;max-width:720px;margin:2rem auto;padding:0 16px;line-height:1.55;color:#1f2328}h1{font-size:1.6rem}h2{font-size:1.15rem;margin-top:1.6rem}</style>
 </head><body>
 <h1>Rosey: privacy policy</h1>
-<p>Last updated: October 13, 2026</p>
+<p>Last updated: October 14, 2026</p>
 <p>Rosey is a personal assistant app built by Daniel Davis for his own use. It is not offered to the public. This page explains what the app does with data.</p>
 
 <h2>Microphone</h2>
@@ -28,11 +28,14 @@
 <h2>Typed messages</h2>
 <p>Messages the user types to the assistant in the app are sent to the owner's private server, answered there, and kept with the conversation history.</p>
 
+<h2>Places and drive times (Google Maps)</h2>
+<p>When the user asks Rosey about a place (opening hours, a drive time, or a store that isn't on the app's store map), the owner's server sends Google Maps Platform the words of that search and the point it is measured from: the phone's last reported location, the owner's home or shop, or a town. Nothing else from the conversation, and no emails, texts or contacts, goes to Google. These lookups only run while the user is talking or typing to Rosey, never while she reads messages. Google's use of this data is covered by <a href="https://policies.google.com/privacy">Google's privacy policy</a> and the <a href="https://maps.google.com/help/terms_maps/">Google Maps terms</a>.</p>
+
 <h2>What is not done</h2>
 <ul>
 <li>No data is sold or shared with advertisers or data brokers.</li>
 <li>No advertising and no analytics or tracking SDKs.</li>
-<li>Data is sent only to the owner's private server, to Anthropic for the assistant's thinking, and to ElevenLabs during spoken conversations, always encrypted in transit (TLS).</li>
+<li>Data is sent only to the owner's private server, to Anthropic for the assistant's thinking, to ElevenLabs during spoken conversations, and to Google Maps Platform for place and drive-time lookups, always encrypted in transit (TLS).</li>
 </ul>
 
 <h2>Keeping and deleting data</h2>
