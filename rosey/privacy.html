@@ -4,7 +4,7 @@
 <style>body{font-family:system-ui,sans-serif;max-width:720px;margin:2rem auto;padding:0 16px;line-height:1.55;color:#1f2328}h1{font-size:1.6rem}h2{font-size:1.15rem;margin-top:1.6rem}</style>
 </head><body>
 <h1>Rosey: privacy policy</h1>
-<p>Last updated: October 14, 2026</p>
+<p>Last updated: October 15, 2026</p>
 <p>Rosey is a personal assistant app built by Daniel Davis for his own use. It is not offered to the public. This page explains what the app does with data.</p>
 
 <h2>Microphone</h2>
@@ -20,7 +20,7 @@
 <p>The app shows notifications about items that need the user. Notification pings delivered through Google's push service carry no message content; the app fetches the details from the owner's private server.</p>
 
 <h2>Notification access (optional)</h2>
-<p>If the user turns it on (the app explains it first, then Android asks), the app reads the notifications that arrive on the phone: text messages, missed calls, and alerts from other apps such as a bank or a delivery service. It sends the app's name, the sender and the notification's text to the owner's private server, where the assistant (using Anthropic's Claude, see above) decides what needs the user's attention. Before anything leaves the phone, the app removes the one-time codes and sign-in links it can recognise; the server applies the same check again. Notifications from password managers and authenticator apps are never sent. The user can turn this off, or switch off single apps, in the app's settings. The app never taps a notification's buttons, never replies and never sends a message on its own.</p>
+<p>If the user turns it on (the app explains it first, then Android asks), the app reads the notifications that arrive on the phone: text messages, missed calls, and alerts from other apps such as a bank or a delivery service. It sends the app's name, the sender and the notification's text to the owner's private server, where the assistant (using Anthropic's Claude, see above) decides what needs the user's attention. Before anything leaves the phone, the app removes the one-time codes and sign-in links it can recognise; the server applies the same check again. Notifications from password managers and authenticator apps are never sent. The user can turn this off, or switch off single apps, in the app's settings. The app never taps a notification's buttons, replies or sends a message on its own. When the user asks the assistant to answer a text, the assistant only prepares a draft. The app shows the exact words and who they go to. Only when the user then says so out loud during a live conversation in the app, or taps Send twice, does the app hand that reply to the Reply button of that conversation's own notification, and the user's messaging app sends it. For a new text, the app opens the user's messaging app with the person and the words filled in, and the user sends it there. The app does not use SMS permissions. Drafts and what happened to them (sent, opened, failed) are kept on the owner's private server.</p>
 
 <h2>Contacts (optional)</h2>
 <p>If the user allows it, the app sends the names, phone numbers, email addresses and company names of the phone's contacts to the owner's private server about twice a day, so the assistant can tell who texted, called or emailed. Photos, notes and addresses are not sent.</p>
