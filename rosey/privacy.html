@@ -48,6 +48,9 @@ is used for the alert and the app's calendar screen, and is cleared from the ser
 <h2>Phone actions in Rosey Live</h2>
 <p>When you ask Rosey Live for a timer, an alarm, directions, music, the flashlight, an app, a phone call or a WhatsApp message, the Rosey app does it on your phone, only after you asked for it in your own words. As with everything you say in Rosey Live, your words go to ElevenLabs' voice service. For a call or a WhatsApp message, the app looks the person up in your phone's own contacts on the phone and shows you a card with the name and number. Only the person's name (or, when two contacts share a name, their names) goes to the voice service, never their numbers. Nothing is dialed or opened until you confirm by voice or by tapping. If you allow Rosey to make phone calls (an Android permission you can take back at any time), she places the call once you confirm; otherwise your phone's dialer opens and you tap Call yourself. WhatsApp opens with your message filled in, and you tap Send there. To give directions to home or the shop, the app asks your own server for those saved places. To control music, the app uses the notification access you already gave it to see what is playing; when you ask what's playing, the song's title and artist go to the voice service. Rosey never changes Do Not Disturb or your volume. The optional "Nearby devices" permission (Android 12 and newer) is used only to route Rosey's voice and yours through your car's hands-free, the way a phone call does; the app does not keep or send anything about those devices.</p>
 
+<h2>Weather forecast and radar</h2>
+<p>The Weather tab shows a forecast and radar picture that the owner's server gets from the US National Weather Service (weather.gov), which is free and needs no account. The server asks for the weather at Home and, when you are far from Home, at your approximate position, rounded to about half a mile; the radar picture is requested by the name of the nearest radar station. Nothing else is sent: no name, no account or device identifier, and nothing from your messages. The app itself talks only to the owner's server, and keeps the last forecast and radar picture on the phone so the tab opens without a signal.</p>
+
 <h2>Display over other apps (optional)</h2>
 <p>The app can ask for Android's optional "Display over other apps" permission (the user turns it on in Android's own settings page, after the app explains it). It is used only so that saying "Hey Rosey" can open Rosey Live by itself while another assistant app is set on the phone; it draws nothing over other apps and sends nothing. Without it everything still works, and "Hey Rosey" shows a notice to tap instead.</p>
 
@@ -58,7 +61,7 @@ is used for the alert and the app's calendar screen, and is cleared from the ser
 <ul>
 <li>No data is sold or shared with advertisers or data brokers.</li>
 <li>No advertising and no analytics or tracking SDKs.</li>
-<li>Data is sent only to the owner's private server, to Anthropic for the assistant's thinking and the caller card's nightly notes, to ElevenLabs during spoken conversations, and to Google Maps Platform for place and drive-time lookups, always encrypted in transit (TLS).</li>
+<li>Data is sent only to the owner's private server, to Anthropic for the assistant's thinking and the caller card's nightly notes, to ElevenLabs during spoken conversations, to Google Maps Platform for place and drive-time lookups, and to the US National Weather Service for the forecast, always encrypted in transit (TLS).</li>
 </ul>
 
 <h2>Keeping and deleting data</h2>
