@@ -15,6 +15,9 @@
 <h2>Personal information</h2>
 <p>When the user asks about their own information (for example reminders, to-dos, calendar, messages or email), the request is sent to the owner's private server, which is reachable only over the owner's private network. Answers that include personal information require the phone to be unlocked.</p>
 <p>On the server, the assistant's thinking is done by Anthropic's Claude AI service: the text it works on (questions, typed messages, forwarded notifications, and contact details it looks up) is sent to Anthropic for that purpose, under Anthropic's commercial terms.</p>
+<p>Once a day, the owner's server also has Claude read the texts and emails the user sent through the app, to pick out
+things the user said they would do; the app then offers each one as a to-do. Nothing becomes a to-do unless the user
+taps Keep.</p>
 
 <h2>Notifications</h2>
 <p>The app shows notifications about items that need the user. Notification pings delivered through Google's push service carry no message content; the app fetches the details from the owner's private server.</p>
@@ -29,20 +32,35 @@
 <p>Messages the user types to the assistant in the app are sent to the owner's private server, answered there, and kept with the conversation history.</p>
 
 <h2>Places and drive times (Google Maps)</h2>
-<p>When the user asks Rosey about a place (opening hours, a drive time, or a store that isn't on the app's store map), the owner's server sends Google Maps Platform the words of that search and the point it is measured from: the phone's last reported location, the owner's home or shop, or a town. Nothing else from the conversation, and no emails, texts or contacts, goes to Google. These lookups only run while the user is talking or typing to Rosey, never while she reads messages. Google's use of this data is covered by <a href="https://policies.google.com/privacy">Google's privacy policy</a> and the <a href="https://maps.google.com/help/terms_maps/">Google Maps terms</a>.</p>
+<p>When the user asks Rosey about a place (opening hours, a drive time, or a store that isn't on the app's store map), the owner's server sends Google Maps Platform the words of that search and the point it is measured from: the phone's last reported location, the owner's home or shop, or a town. Nothing else from the conversation, and no emails, texts or contacts, goes to Google. These lookups only run while the user is talking or typing to Rosey, never while she reads messages; leave-by alerts (below) are the one automatic exception, and they send map points only. Google's use of this data is covered by <a href="https://policies.google.com/privacy">Google's privacy policy</a> and the <a href="https://maps.google.com/help/terms_maps/">Google Maps terms</a>.</p>
+<p>To show calendar stops on the map, the server sends Google the place written in today's and tomorrow's events, never their titles or guests.</p>
+<p>When the user tells Rosey about a breakdown (a flat tire, a truck that won't start), the owner's server sends Google Maps Platform the kind of help needed, picked from a fixed list (such as towing or tire repair), and a location to search around: the phone's last reported location, or the owner's shop or home when the server has none. It finds businesses open now nearby and, when the phone's location is current, asks for the drive time from the owner's shop to it. When the user names a town (Rosey asks for the nearest one when the phone's location is out of date), the name of that town is sent with the search as well. Apart from that town's name, no words from the conversation, messages, calendar or contacts go to Google, and nothing Google returns is kept. These lookups run only while the user is asking Rosey something. The assistant (Anthropic's Claude, see above) sees the same position, so it can tell the user where they are.</p>
+<p><strong>Leave-by alerts (Google Maps).</strong> For calendar events that have a place and that the user turned on, added from the app,
+or keeps on a calendar the user chose for this, the owner's server asks Google Maps Platform for the drive time with
+traffic about an hour before the user would need to leave, and once more shortly before; when the user asks Rosey when to
+leave for an event, she makes the same request during that question. Each request carries only two
+map points: where the phone last reported being (or the owner's home or shop) and the point of the event's place. The
+event's title, notes, guests and any names are never sent. No request uses the phone's location when the phone hasn't
+reported for three hours. Events on calendars that receive invitations from anyone count only when the user turns them
+on, so another person's invitation can't make the server send the user's location. Google's answer (minutes and miles)
+is used for the alert and the app's calendar screen, and is cleared from the server the night after the event.</p>
 
 <h2>Phone actions in Rosey Live</h2>
 <p>When you ask Rosey Live for a timer, an alarm, directions, music, the flashlight, an app, a phone call or a WhatsApp message, the Rosey app does it on your phone, only after you asked for it in your own words. As with everything you say in Rosey Live, your words go to ElevenLabs' voice service. For a call or a WhatsApp message, the app looks the person up in your phone's own contacts on the phone and shows you a card with the name and number. Only the person's name (or, when two contacts share a name, their names) goes to the voice service, never their numbers. Nothing is dialed or opened until you confirm by voice or by tapping. If you allow Rosey to make phone calls (an Android permission you can take back at any time), she places the call once you confirm; otherwise your phone's dialer opens and you tap Call yourself. WhatsApp opens with your message filled in, and you tap Send there. To give directions to home or the shop, the app asks your own server for those saved places. To control music, the app uses the notification access you already gave it to see what is playing; when you ask what's playing, the song's title and artist go to the voice service. Rosey never changes Do Not Disturb or your volume.</p>
+
+<h2>Caller card</h2>
+<p>When someone in your contacts calls, the app reads the incoming-call notification of your phone's calling app to see the number, looks it up in the copy of your data the app already keeps, and shows its own notification: when you last talked, a one-line note, and anything still open with that person, such as a to-do or an unsent draft. Nothing about the incoming call is sent anywhere. To write the one-line notes, your own server sends Anthropic's Claude, once a night, the recent call transcripts, forwarded texts and emails of your most active contacts, one person at a time. The notes are kept on your own server and in the app, and are only shown to you. You can turn caller cards off in the app's settings.</p>
 
 <h2>What is not done</h2>
 <ul>
 <li>No data is sold or shared with advertisers or data brokers.</li>
 <li>No advertising and no analytics or tracking SDKs.</li>
-<li>Data is sent only to the owner's private server, to Anthropic for the assistant's thinking, to ElevenLabs during spoken conversations, and to Google Maps Platform for place and drive-time lookups, always encrypted in transit (TLS).</li>
+<li>Data is sent only to the owner's private server, to Anthropic for the assistant's thinking and the caller card's nightly notes, to ElevenLabs during spoken conversations, and to Google Maps Platform for place and drive-time lookups, always encrypted in transit (TLS).</li>
 </ul>
 
 <h2>Keeping and deleting data</h2>
 <p>Conversation transcripts are kept on the owner's private server and can be deleted by the owner at any time. Forwarded notifications are kept in their own list on the server for 30 days; what the assistant read also stays in its conversation history (and that history's backups) until the owner deletes it. Uninstalling the app removes everything stored on the phone.</p>
+<p>Things the user asks Rosey to remember (where something is, what was lent and to whom, where the user parked, and roadside or insurance numbers) are kept on the owner's private server until the user taps Forget in the app or asks Rosey to forget them; copies in backups made before that are not removed. Forgetting takes the item off Rosey's list; the conversation in which the user said it stays in the conversation history (and that history's backups) like any other conversation, until the owner deletes it.</p>
 
 <h2>Contact</h2>
 <p>Questions: dedavisok@gmail.com</p>
